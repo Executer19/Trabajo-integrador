@@ -4,15 +4,16 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-
-import grupo5.argprograma4.Partido;
-import grupo5.argprograma4.ResultadoEnum;
-
 import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
+        String archivo;
+        List<Partido> partidos = leerPartido(archivo);
+        List<Pronostico> pronosticos = leerPronosticos(archivo, partidos);
 
+        // De aqui en adelante trabajaremos sobre las listas generadas por la lectura de
+        // cada archivo .csv
     }
 
     private static List<Partido> leerPartido(String archivo) {
