@@ -1,7 +1,5 @@
 package grupo5.argprograma4;
 
-import grupo5.argprograma4.ResultadoEnum;
-
 public class Pronostico {
     private Partido partido;
     private Equipo equipo;

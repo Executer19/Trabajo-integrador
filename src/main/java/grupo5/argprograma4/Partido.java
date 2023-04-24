@@ -6,6 +6,14 @@ public class Partido {
     private int golesEquipo1;
     private int golesEquipo2;
 
+    // Aqui creamos la clase equipo con su constructor y sus metodos accesors y
+    // mutadores.
+    // Cada partido consta de dos objetos Equipo y dos enteros que simbolizan sus
+    // goles
+    // El metodo resultado retorna un Enum que indica el resultado del equipo que
+    // pasamos como argumento
+    // comparando los goles que hizo con los de su rival.
+
     public Equipo getEquipo1() {
         return equipo1;
     }

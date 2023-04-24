@@ -1,6 +1,5 @@
 package grupo5.argprograma4;
 
-import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
@@ -8,15 +7,19 @@ import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
-        String archivo;
-        List<Partido> partidos = leerPartido(archivo);
-        List<Pronostico> pronosticos = leerPronosticos(archivo, partidos);
+        String resultados = "./resultados.csv";
+        String pronosticosRuta = "./pronosticos.csv";
+        List<Partido> partidos = leerPartidos(resultados);
+        List<Pronostico> pronosticos = leerPronosticos(pronosticosRuta, partidos);
 
         // De aqui en adelante trabajaremos sobre las listas generadas por la lectura de
         // cada archivo .csv
+
+        System.out.println(partidos);
+        System.out.println(pronosticos);
     }
 
-    private static List<Partido> leerPartido(String archivo) {
+    private static List<Partido> leerPartidos(String archivo) {
         List<Partido> partidos = new ArrayList<>();
 
         try {
