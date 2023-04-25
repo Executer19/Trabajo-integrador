@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
-        String resultados = "F:/Users/Leandro/Documents/Development/Argentina Programa - JAVA/TP Integrador/integrador/src/main/java/grupo5/argprograma4//resultados.csv";
-        String pronosticosRuta = "F:/Users/Leandro/Documents/Development/Argentina Programa - JAVA/TP Integrador/integrador/src/main/java/grupo5/argprograma4/pronosticos.csv";
+        String resultados = "./integrador/src/main/java/grupo5/argprograma4/resultados.csv";
+        String pronosticosRuta = "./integrador/src/main/java/grupo5/argprograma4/pronosticos.csv";
         List<Partido> partidos = leerPartidos(resultados);
         List<Pronostico> pronosticos = leerPronosticos(pronosticosRuta, partidos);
 
