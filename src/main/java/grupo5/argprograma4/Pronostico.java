@@ -8,13 +8,10 @@ public class Pronostico {
     public int puntos() {
         ResultadoEnum resultadoReal = partido.resultado(equipo);
         if (resultado == resultadoReal) {
-            // acertó el resultado exacto
-            return 3;
-        } else if (resultado == ResultadoEnum.EMPATE && resultadoReal == ResultadoEnum.EMPATE) {
-            // acertó que hubo empate
+            // acertó el resultado predicho
             return 1;
         } else {
-            // no acertó el resultado ni el empate
+            // no acertó el resultado
             return 0;
         }
     }
@@ -25,3 +22,14 @@ public class Pronostico {
         this.resultado = resultado;
     }
 }
+
+/*
+ * Pronostico pronosticoFinal(Final, Argentina, GANADOR);
+ * 
+ * => GANA ARGENTINA
+ * 
+ * pronosticoFinal.puntos(); => suma 1 punto
+ * 
+ * 
+ * 
+ */

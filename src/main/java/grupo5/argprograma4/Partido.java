@@ -46,6 +46,13 @@ public class Partido {
         this.golesEquipo2 = golesEquipo2;
     }
 
+    public Partido(Equipo equipo1, Equipo equipo2, int golesEquipo1, int golesEquipo2) {
+        this.equipo1 = equipo1;
+        this.equipo2 = equipo2;
+        this.golesEquipo1 = golesEquipo1;
+        this.golesEquipo2 = golesEquipo2;
+    }
+
     public ResultadoEnum resultado(Equipo equipo) {
         if (equipo == equipo1) {
             return golesEquipo1 > golesEquipo2 ? ResultadoEnum.GANADOR
@@ -58,11 +65,27 @@ public class Partido {
         }
     }
 
-    public Partido(Equipo equipo1, Equipo equipo2, int golesEquipo1, int golesEquipo2) {
-        this.equipo1 = equipo1;
-        this.equipo2 = equipo2;
-        this.golesEquipo1 = golesEquipo1;
-        this.golesEquipo2 = golesEquipo2;
-    }
-
 }
+
+/*
+ * BOCA 1 0 RIVER
+ * EQ1 EQ2
+ * Partido clasico(BOCA, RIVER, 1, 0);
+ * 
+ * clasico.resultado(BOCA) => GANADOR
+ * clasico.resultado(RIVER) => PERDEDOR
+ * clasico.resultado(RACING) => EXCEPCION
+ */
+
+/*
+ * OPERADOR TERNARIO
+ * 
+ * PRUEBA LOGICA ? RESULTADO POSITIVO : RESULTADO NEGATIVO
+ * 
+ * IF() {
+ * IF () {
+ * 
+ * }
+ * }
+ * 
+ */
