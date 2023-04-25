@@ -12,22 +12,16 @@ public class App {
         List<Partido> partidos = leerPartidos(resultados);
         List<Pronostico> pronosticos = leerPronosticos(pronosticosRuta, partidos);
 
-        // De aqui en adelante trabajaremos sobre las listas generadas por la lectura de
-        // cada archivo .csv
-
         System.out.println(partidos);
         System.out.println(pronosticos);
     }
 
     private static List<Partido> leerPartidos(String archivo) {
-        // Creo una lista de partidos vacia
         List<Partido> partidos = new ArrayList<>();
 
         try {
             List<String> lineas = Files.readAllLines(Paths.get(archivo));
 
-            // Recorremos la lista "lineas" y de cada linea extraemos la informacion y
-            // creamos un objeto partido que sera añadido a la lista partidos
             for (String linea : lineas) {
                 String[] campos = linea.split(";");
                 Equipo equipo1 = new Equipo(campos[0]);
@@ -43,15 +37,11 @@ public class App {
     }
 
     private static List<Pronostico> leerPronosticos(String archivo, List<Partido> partidos) {
-        // Creo una lista de pronosticos vacia
         List<Pronostico> pronosticos = new ArrayList<>();
 
         try {
-            // Creo una lista auxiliar que viene de la lectura del archivo de pronosticos
             List<String> lineas = Files.readAllLines(Paths.get(archivo));
 
-            // Recorremos la lista "lineas" y de cada elemento de ella sacamos los datos
-            // para crear un pronostico
             for (String linea : lineas) {
                 String[] campos = linea.split(";");
                 Equipo equipo1 = new Equipo(campos[0]);
@@ -68,12 +58,7 @@ public class App {
                         break;
                 }
                 Equipo equipo2 = new Equipo(campos[2]);
-
-                // Vamos a crear un partido null
-                // De la lista de partidos, vamos a buscar cual es el correspondiente a nuestro
-                // pronostico
-                // Sera aquel partido donde jueguen ambos equipos
-                // podria agregarse ronda
+                Persona persona = new Persona(campos[3]);
                 Partido partido = null;
                 for (Partido p : partidos) {
                     if (p.getEquipo1().getNombre().equals(equipo1.getNombre())
@@ -83,12 +68,28 @@ public class App {
                     }
                 }
                 if (partido != null) {
-                    pronosticos.add(new Pronostico(partido, equipo1, equipo2, resultado));
+                    pronosticos.add(new Pronostico(partido, equipo1, equipo2, resultado, persona));
                 }
             }
         } catch (Exception e) {
             System.out.println(e);
         }
         return pronosticos;
+    }
+
+    private static void puntuacion(List<Pronostico> pronosticos, List<Partido> partidos, Persona persona) {
+        int puntos = 0;
+        for (Pronostico pro : pronosticos) {
+            if (pro.getPersona().equals(persona)) {
+                for (Partido par : partidos) {
+                    if (pro.getPartido().equals(par)) {
+                        if (pro.getResultado().equals(par.resultado())) {
+                            puntos++;
+                        }
+                    }
+                }
+            }
+        }
+        persona.setPuntos(puntos);
     }
 }

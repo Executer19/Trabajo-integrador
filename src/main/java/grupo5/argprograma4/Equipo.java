@@ -4,10 +4,6 @@ public class Equipo {
     private String nombre;
     private String descripcion;
 
-    // Aqui creamos la clase Equipo, con su constructor y sus metodos accesores y
-    // mutadores
-    // Con esta clase generamos un objeto Equipo para cada equipo que participe en
-    // el certamen donde se realicen los pronosticos
     public String getNombre() {
         return nombre;
     }

@@ -5,39 +5,31 @@ public class Pronostico {
     private Equipo equipo1;
     private Equipo equipo2;
     private ResultadoEnum resultado;
+    private Persona persona;
 
-    public int puntos(Equipo equipo) {
-        ResultadoEnum resultadoReal = partido.resultado(equipo);
-        if (resultado == resultadoReal) {
-            // acertó el resultado predicho
-            return 1;
-        } else {
-            // no acertó el resultado
-            return 0;
-        }
+    public ResultadoEnum getResultado() {
+        return resultado;
     }
 
-    public Pronostico(Partido partido, Equipo equipo1, Equipo equipo2, ResultadoEnum resultado) {
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public Partido getPartido() {
+        return partido;
+    }
+
+    public Pronostico(Partido partido, Equipo equipo1, Equipo equipo2, ResultadoEnum resultado, Persona persona) {
         this.partido = partido;
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
         this.resultado = resultado;
+        this.persona = persona;
     }
 
     @Override
     public String toString() {
-        return "Pronostico [" + equipo1 + " - " + equipo2 + "-" + resultado + "]";
+        return "Pronostico [" + equipo1 + " - " + equipo2 + "-" + resultado + "]" + persona.getNombre();
     }
 
 }
-
-/*
- * Pronostico pronosticoFinal(Final, Argentina, GANADOR);
- * 
- * => GANA ARGENTINA
- * 
- * pronosticoFinal.puntos(); => suma 1 punto
- * 
- * 
- * 
- */
