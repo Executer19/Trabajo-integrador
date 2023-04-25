@@ -65,6 +65,11 @@ public class Partido {
         }
     }
 
+    @Override
+    public String toString() {
+        return equipo1 + " " + golesEquipo1 + "-" + golesEquipo2 + " " + equipo2;
+    }
+
 }
 
 /*

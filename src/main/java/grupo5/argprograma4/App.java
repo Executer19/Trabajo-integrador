@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
-        String resultados = "./resultados.csv";
-        String pronosticosRuta = "./pronosticos.csv";
+        String resultados = "F:/Users/Leandro/Documents/Development/Argentina Programa - JAVA/TP Integrador/integrador/src/main/java/grupo5/argprograma4//resultados.csv";
+        String pronosticosRuta = "F:/Users/Leandro/Documents/Development/Argentina Programa - JAVA/TP Integrador/integrador/src/main/java/grupo5/argprograma4/pronosticos.csv";
         List<Partido> partidos = leerPartidos(resultados);
         List<Pronostico> pronosticos = leerPronosticos(pronosticosRuta, partidos);
 
@@ -55,7 +55,18 @@ public class App {
             for (String linea : lineas) {
                 String[] campos = linea.split(";");
                 Equipo equipo1 = new Equipo(campos[0]);
-                ResultadoEnum resultado = ResultadoEnum.valueOf(campos[1].toUpperCase());
+                ResultadoEnum resultado = null;
+                switch (campos[1].toUpperCase()) {
+                    case "GANA1":
+                        resultado = ResultadoEnum.GANA1;
+                        break;
+                    case "GANA2":
+                        resultado = ResultadoEnum.GANA2;
+                        break;
+                    case "EMPATE":
+                        resultado = ResultadoEnum.EMPATE;
+                        break;
+                }
                 Equipo equipo2 = new Equipo(campos[2]);
 
                 // Vamos a crear un partido null
@@ -65,7 +76,8 @@ public class App {
                 // podria agregarse ronda
                 Partido partido = null;
                 for (Partido p : partidos) {
-                    if (p.getEquipo1().equals(equipo1) && p.getEquipo2().equals(equipo2)) {
+                    if (p.getEquipo1().getNombre().equals(equipo1.getNombre())
+                            && p.getEquipo2().getNombre().equals(equipo2.getNombre())) {
                         partido = p;
                         break;
                     }

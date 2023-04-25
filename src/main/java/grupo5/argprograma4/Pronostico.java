@@ -23,6 +23,12 @@ public class Pronostico {
         this.equipo2 = equipo2;
         this.resultado = resultado;
     }
+
+    @Override
+    public String toString() {
+        return "Pronostico [" + equipo1 + " - " + equipo2 + "-" + resultado + "]";
+    }
+
 }
 
 /*
