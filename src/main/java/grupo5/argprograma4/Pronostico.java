@@ -2,10 +2,11 @@ package grupo5.argprograma4;
 
 public class Pronostico {
     private Partido partido;
-    private Equipo equipo;
+    private Equipo equipo1;
+    private Equipo equipo2;
     private ResultadoEnum resultado;
 
-    public int puntos() {
+    public int puntos(Equipo equipo) {
         ResultadoEnum resultadoReal = partido.resultado(equipo);
         if (resultado == resultadoReal) {
             // acertó el resultado predicho
@@ -16,9 +17,10 @@ public class Pronostico {
         }
     }
 
-    public Pronostico(Partido partido, Equipo equipo, ResultadoEnum resultado) {
+    public Pronostico(Partido partido, Equipo equipo1, Equipo equipo2, ResultadoEnum resultado) {
         this.partido = partido;
-        this.equipo = equipo;
+        this.equipo1 = equipo1;
+        this.equipo2 = equipo2;
         this.resultado = resultado;
     }
 }

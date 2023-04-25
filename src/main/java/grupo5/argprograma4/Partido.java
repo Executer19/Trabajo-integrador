@@ -55,11 +55,11 @@ public class Partido {
 
     public ResultadoEnum resultado(Equipo equipo) {
         if (equipo == equipo1) {
-            return golesEquipo1 > golesEquipo2 ? ResultadoEnum.GANADOR
-                    : golesEquipo1 < golesEquipo2 ? ResultadoEnum.PERDEDOR : ResultadoEnum.EMPATE;
+            return golesEquipo1 > golesEquipo2 ? ResultadoEnum.GANA1
+                    : golesEquipo1 < golesEquipo2 ? ResultadoEnum.GANA2 : ResultadoEnum.EMPATE;
         } else if (equipo == equipo2) {
-            return golesEquipo2 > golesEquipo1 ? ResultadoEnum.GANADOR
-                    : golesEquipo2 < golesEquipo1 ? ResultadoEnum.PERDEDOR : ResultadoEnum.EMPATE;
+            return golesEquipo2 > golesEquipo1 ? ResultadoEnum.GANA2
+                    : golesEquipo2 < golesEquipo1 ? ResultadoEnum.GANA1 : ResultadoEnum.EMPATE;
         } else {
             throw new IllegalArgumentException("El equipo no jugó este partido.");
         }

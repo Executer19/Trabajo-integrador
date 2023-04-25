@@ -1,6 +1,6 @@
-Argentina;5;0;Arabia Saudita;Leandro
-Polonia;2;4;Mexico;Leandro
-Argentina;2;0;Mexico;Leandro
-Arabia Saudita;0;2;Polonia;Leandro
-Argentina;2;1;Polonia;Leandro
-Mexico;1;0;Arabia Saudita;Leandro
+Argentina;GANA1;Arabia Saudita;Leandro
+Polonia;EMPATE;Mexico;Leandro
+Argentina;GANA1;Mexico;Leandro
+Arabia Saudita;GANA2;Polonia;Leandro
+Argentina;EMPATE;Polonia;Leandro
+Mexico;EMPATE;Arabia Saudita;Leandro
