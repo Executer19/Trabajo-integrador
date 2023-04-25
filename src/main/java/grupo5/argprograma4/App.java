@@ -11,9 +11,12 @@ public class App {
         String pronosticosRuta = "./pronosticos.csv";
         List<Partido> partidos = leerPartidos(resultados);
         List<Pronostico> pronosticos = leerPronosticos(pronosticosRuta, partidos);
+        Persona Leandro = new Persona("Leandro");
 
-        System.out.println(partidos);
-        System.out.println(pronosticos);
+        // System.out.println(partidos);
+        // System.out.println(pronosticos);
+        System.out.println(puntuacion(pronosticos, partidos, Leandro));
+
     }
 
     private static List<Partido> leerPartidos(String archivo) {
@@ -77,10 +80,10 @@ public class App {
         return pronosticos;
     }
 
-    private static void puntuacion(List<Pronostico> pronosticos, List<Partido> partidos, Persona persona) {
+    private static String puntuacion(List<Pronostico> pronosticos, List<Partido> partidos, Persona persona) {
         int puntos = 0;
         for (Pronostico pro : pronosticos) {
-            if (pro.getPersona().equals(persona)) {
+            if (pro.getPersona().getNombre().equals(persona.getNombre())) {
                 for (Partido par : partidos) {
                     if (pro.getPartido().equals(par)) {
                         if (pro.getResultado().equals(par.resultado())) {
@@ -91,5 +94,6 @@ public class App {
             }
         }
         persona.setPuntos(puntos);
+        return persona.getNombre() + " tiene " + puntos + " puntos";
     }
 }
